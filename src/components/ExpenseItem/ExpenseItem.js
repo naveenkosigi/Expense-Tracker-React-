@@ -1,19 +1,25 @@
 import './ExpenseItem.css';
 import ExpenseDate from '../ExpenseDate/ExpenseDate';
 import Card from '../CardWrapper/CardComponent';
+import { useState } from 'react';
 
-function expenseItem(props){
+function ExpenseItem(props){
+    
+    const [price,setPrice]=useState(props.price);
 
+    const onMouseOverPrice = () => {
+        setPrice(100);
+    };
 
     return (
        <Card className="expense-item">
             <ExpenseDate date={props.date} />
            <div className="expense-item__description">
                <h2>{props.title}</h2>
-               <div className="expense-item__price">Rs.{props.price}</div>
+               <div onMouseOver={onMouseOverPrice} className="expense-item__price">Rs.{price}</div>
            </div>
        </Card>
     );
 }
 
-export default expenseItem;
+export default ExpenseItem;
