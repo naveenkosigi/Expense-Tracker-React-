@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       Test App
-      <ExpenseItem></ExpenseItem>
+      <ExpenseItem title="1st Expense" price="23" date={new Date()}></ExpenseItem>
     </div>
   );
 }
