@@ -1,0 +1,10 @@
+.expense_date_container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.expense_date_container label{
+    font-weight: bold;
+    display: block;
+    color: white;
+}
