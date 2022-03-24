@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import './ExpenseForm.css';
-export const ExpenseForm = () => {
+export const ExpenseForm = (props) => {
 
     const [state,setState] = useState({
         title:'',
@@ -38,7 +38,7 @@ export const ExpenseForm = () => {
 
     const onFormSubmit = (event) => {
         event.preventDefault();
-        console.log(state);
+        props.onExpenseSave(state);
     };
 
     return (
