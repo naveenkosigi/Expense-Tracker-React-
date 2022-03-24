@@ -20,14 +20,20 @@ export const ExpensePageComponent = () => {
         price:'80',
         date:new Date()
     }
-]);
-
+  ]);
 
     const onExpenseSave = (expense) => {
-        console.log({
-          ...expense,
-          id:Date.now()+""
-        });
+        
+        setExpenses((prevExpenses) => {
+          return[
+            ...prevExpenses,
+            {
+              ...expense,
+              id:Date.now()+"",
+              date:new Date(expense.date)
+            }
+          ];
+        })
       };
     
       return (
