@@ -8,24 +8,6 @@ export const Expenses = (props) => {
 
     const [selectedYear,setYear] = useState('2022');
 
-    const [expenses,setExpenses] = useState([
-        {
-            title:'1st Expense',
-            price:'23',
-            date:new Date()
-        },
-        {
-            title:'1st Expense',
-            price:'100',
-            date:new Date()
-        },
-        {
-            title:'1st Expense',
-            price:'80',
-            date:new Date()
-        }
-    ]);
-
     const onYearChange = (year) => {
         setYear(year);
     };
@@ -34,7 +16,7 @@ export const Expenses = (props) => {
     return (
         <Card className="expenses-container">
             <ExpenseDateFilter date={selectedYear} onYearChange={onYearChange}></ExpenseDateFilter>
-            {expenses.map((expense) => {
+            {props.expenses.map((expense) => {
                 return (<ExpenseItem title={expense.title} price={expense.price} date={expense.date} />)
             })} 
         </Card>
