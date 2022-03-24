@@ -11,10 +11,19 @@ export const ExpenseForm = () => {
 
     const onSubmit = (event) => {
         event.preventDefault();
-        setState({
+        /*setState({
             title:event.target.querySelector("#expenseTitle").value,
             amount:event.target.querySelector("#expenseAmount").value,
             date:event.target.querySelector("#expenseDate").value
+        });*/
+
+        setState( (prevState) => {
+            return{
+                ...prevState,
+                title:event.target.querySelector("#expenseTitle").value,
+                amount:event.target.querySelector("#expenseAmount").value,
+                date:event.target.querySelector("#expenseDate").value
+            }
         });
         console.log(state);
     };
