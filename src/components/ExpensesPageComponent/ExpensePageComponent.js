@@ -1,6 +1,7 @@
 import { ExpenseForm } from "../ExpenseForm/ExpenseForm";
 import { Expenses } from "../Expenses/Expenses";
 import { useState } from "react";
+import { Test } from "../TestComponent";
 
 export const ExpensePageComponent = () => {
 
@@ -29,6 +30,7 @@ export const ExpensePageComponent = () => {
       return (
         <div>
           <ExpenseForm onExpenseSave={onExpenseSave}/>
+          <Test/>
           <Expenses expenses={expenses} defaultYear={selectedYear} onYearChange={onYearChange}/>
         </div>
       );

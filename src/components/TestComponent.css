@@ -1,0 +1,21 @@
+.chart-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.chart{
+    width: 2%;
+    background-color: white;
+    border-radius: 21px;
+    min-height: 174px;
+    display: flex;
+    flex-direction: column-reverse;
+    
+}
+
+.data-filler{
+    display: inline-block;
+    height: 80%;
+    width: 100%;
+    background-color: #84DCCF;
+}
