@@ -1,3 +1,6 @@
+*{
+  box-sizing: border-box;
+}
 .expenses-container{
   background-color: #312f2f;
   padding: 1rem;
@@ -5,3 +8,8 @@
   width: 50rem;
   max-width: 95%;
 }
+
+body{
+  background-color: black;
+}
+
