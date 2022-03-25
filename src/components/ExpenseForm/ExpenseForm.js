@@ -38,7 +38,11 @@ export const ExpenseForm = (props) => {
 
     const onFormSubmit = (event) => {
         event.preventDefault();
-        props.onExpenseSave(state);
+        props.onExpenseSave({
+            ...state,
+            id:Date.now()+"",
+            date:new Date(state.date)
+        });
     };
 
     return (
@@ -50,7 +54,7 @@ export const ExpenseForm = (props) => {
                 </div>
                 <div className="new-expense__control">
                     <label htmlFor="expenseAmount">Amount</label>
-                    <input type="number" min="0.5" step="0.5" id="expenseAmount" value={state.amount} onChange={onExpenseAmountChange}/> 
+                    <input type="number" min="0.5" step="0.5" id="expenseAmount" value={state.price} onChange={onExpenseAmountChange}/> 
                 </div>
                 <div className="new-expense__control">
                     <label htmlFor="expenseDate">Date</label>

@@ -12,12 +12,8 @@ export const ExpensePageComponent = () => {
         
         setExpenses((prevExpenses) => {
           return[
-            ...prevExpenses,
-            {
-              ...expense,
-              id:Date.now()+"",
-              date:new Date(expense.date)
-            }
+            expense,
+            ...prevExpenses
           ];
         })
       };
