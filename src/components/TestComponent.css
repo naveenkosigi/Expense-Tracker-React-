@@ -1,21 +1,24 @@
-.chart-container{
+.chart-listview-container{
     display: flex;
-    justify-content: space-evenly;
 }
 
-.chart{
-    width: 2%;
-    background-color: white;
-    border-radius: 21px;
-    min-height: 174px;
+.chart-container{
     display: flex;
     flex-direction: column-reverse;
-    
+    align-items: center;
+    color: white;
+}
+
+.data-container{
+    min-height: 150px;
+    width: 20%;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 .data-filler{
-    display: inline-block;
-    height: 80%;
-    width: 100%;
     background-color: #84DCCF;
+    height: 82%;
 }
