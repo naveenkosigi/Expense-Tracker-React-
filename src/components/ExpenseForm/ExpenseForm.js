@@ -5,7 +5,7 @@ export const ExpenseForm = (props) => {
 
     const [state,setState] = useState({
         title:'',
-        amount:'',
+        price:'',
         date:''
     });
 
@@ -22,7 +22,7 @@ export const ExpenseForm = (props) => {
         setState((prevState) => {
             return {
                 ...prevState,
-                amount:event.target.value
+                price:event.target.value
             };
         });
     };
