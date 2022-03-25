@@ -17,7 +17,7 @@ export const Expenses = (props) => {
         <Card className="expenses-container">
             <ExpenseDateFilter date={selectedYear} onYearChange={onYearChange}></ExpenseDateFilter>
             {props.expenses.map((expense) => {
-                return (<ExpenseItem title={expense.title} price={expense.price} date={expense.date} />)
+                return (<ExpenseItem key={expense.id} title={expense.title} price={expense.price} date={expense.date} />)
             })} 
         </Card>
     );
