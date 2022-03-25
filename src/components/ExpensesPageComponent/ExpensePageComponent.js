@@ -8,9 +8,17 @@ export const ExpensePageComponent = () => {
     
   ]);
 
+  const [selectedYear,setYear] = useState('2022');
+
+    const onYearChange = (year) => {
+        setYear(year);
+    };
+
     const onExpenseSave = (expense) => {
         
         setExpenses((prevExpenses) => {
+          
+          onYearChange(expense.date.getFullYear().toString());
           return[
             expense,
             ...prevExpenses
@@ -21,7 +29,7 @@ export const ExpensePageComponent = () => {
       return (
         <div>
           <ExpenseForm onExpenseSave={onExpenseSave}/>
-          <Expenses expenses={expenses}/>
+          <Expenses expenses={expenses} defaultYear={selectedYear} onYearChange={onYearChange}/>
         </div>
       );
 }
