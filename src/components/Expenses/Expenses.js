@@ -16,9 +16,12 @@ export const Expenses = (props) => {
     return (
         <Card className="expenses-container">
             <ExpenseDateFilter date={selectedYear} onYearChange={onYearChange}></ExpenseDateFilter>
-            {props.expenses.map((expense) => {
-                return (<ExpenseItem key={expense.id} title={expense.title} price={expense.price} date={expense.date} />)
-            })} 
+            {props.expenses.filter((expense) => 
+                expense.date.getFullYear().toString() === selectedYear
+            ).map((expense) => 
+                (<ExpenseItem key={expense.id} title={expense.title} price={expense.price} date={expense.date} />)
+            )
+            } 
         </Card>
     );
 };
