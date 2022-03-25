@@ -1,5 +1,6 @@
 .chart-listview-container{
     display: flex;
+    justify-content: space-between;
 }
 
 .chart-container{
