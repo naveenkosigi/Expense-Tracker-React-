@@ -17,11 +17,13 @@ export const ExpensePageComponent = () => {
 
   if(chartDataPoints[selectedYear] === undefined){
     chartDataPoints[selectedYear] = [];
+
+    for(let config of dataMonthConfig){
+      chartDataPoints[selectedYear].push({...config,value:0})
+    }
   }
 
-  for(let config of dataMonthConfig){
-    chartDataPoints[selectedYear].push({...config,value:0})
-  }
+  
 
     const onYearChange = (year) => {
         setYear(year);
@@ -32,6 +34,11 @@ export const ExpensePageComponent = () => {
         setExpenses((prevExpenses) => {
           
           onYearChange(expense.date.getFullYear().toString());
+
+          setChartDataPoints((prevState) => {
+            const newExpenseValue=prevState[selectedYear][expense.date.getMonth()].value;
+            return prevState;
+          });
           return[
             expense,
             ...prevExpenses
