@@ -4,7 +4,7 @@ export const Test = (props) => {
 
     const chartCount=props.config.length;
     const chartContent = props.config.map((config) => {
-
+        
         const percentageToShow = String(config.value) + "%";
         return (
             <div className='chart-container'>
