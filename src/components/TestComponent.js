@@ -4,11 +4,13 @@ export const Test = (props) => {
 
     const chartCount=props.config.length;
     const chartContent = props.config.map((config) => {
+
+        const percentageToShow = String(config.value) + "%";
         return (
             <div className='chart-container'>
                 <span className='chart-label'>{config.label}</span>
                 <div className='data-container'>
-                    <span className='data-filler' />
+                    <span className='data-filler' style={{height:percentageToShow}} />
                 </div>
             </div>
         );

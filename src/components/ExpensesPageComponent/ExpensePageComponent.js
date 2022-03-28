@@ -7,9 +7,13 @@ import { dataMonthConfig } from '../../CommonConfig';
 
 export const ExpensePageComponent = () => {
 
-  const [expenses,setExpenses] = useState([
-    
-  ]);
+  const [expenses,setExpenses] = useState([]);
+
+  const [chartDataPoints,setChartDataPoints]= useState([]);
+
+  for(let config of dataMonthConfig){
+    chartDataPoints.push({...config,value:0})
+  }
 
   const [selectedYear,setYear] = useState('2022');
 
@@ -32,7 +36,7 @@ export const ExpensePageComponent = () => {
       return (
         <div>
           <ExpenseForm onExpenseSave={onExpenseSave}/>
-          <Test config={dataMonthConfig}/>
+          <Test config={chartDataPoints}/>
           <Expenses expenses={expenses} defaultYear={selectedYear} onYearChange={onYearChange}/>
         </div>
       );
