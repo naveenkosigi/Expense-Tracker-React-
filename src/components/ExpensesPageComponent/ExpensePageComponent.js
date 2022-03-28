@@ -33,11 +33,20 @@ export const ExpensePageComponent = () => {
         
         setExpenses((prevExpenses) => {
           
-          onYearChange(expense.date.getFullYear().toString());
+          const referredYear=expense.date.getFullYear().toString();
+          const monthIndex=expense.date.getMonth();
+
+          onYearChange(referredYear);
 
           setChartDataPoints((prevState) => {
-            const newExpenseValue=prevState[selectedYear][expense.date.getMonth()].value;
-            return prevState;
+            const referredConfig=prevState[referredYear][monthIndex];
+
+            referredConfig.value = String(referredConfig.value + (+expense.price));
+
+            return {
+              ...prevState,
+              [referredYear] : [...prevState[referredYear]]
+            };
           });
           return[
             expense,
