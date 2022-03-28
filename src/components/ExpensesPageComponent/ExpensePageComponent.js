@@ -41,7 +41,7 @@ export const ExpensePageComponent = () => {
           setChartDataPoints((prevState) => {
             const referredConfig=prevState[referredYear][monthIndex];
 
-            referredConfig.value = String(referredConfig.value + (+expense.price));
+            referredConfig.value = String(+referredConfig.value + (+expense.price));
 
             return {
               ...prevState,
