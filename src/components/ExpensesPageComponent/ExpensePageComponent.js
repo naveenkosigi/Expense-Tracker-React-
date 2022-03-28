@@ -9,13 +9,19 @@ export const ExpensePageComponent = () => {
 
   const [expenses,setExpenses] = useState([]);
 
-  const [chartDataPoints,setChartDataPoints]= useState([]);
+  const [chartDataPoints,setChartDataPoints]= useState({});
 
-  for(let config of dataMonthConfig){
-    chartDataPoints.push({...config,value:0})
-  }
+  const maxAmount = 50;
 
   const [selectedYear,setYear] = useState('2022');
+
+  if(chartDataPoints[selectedYear] === undefined){
+    chartDataPoints[selectedYear] = [];
+  }
+
+  for(let config of dataMonthConfig){
+    chartDataPoints[selectedYear].push({...config,value:0})
+  }
 
     const onYearChange = (year) => {
         setYear(year);
@@ -36,7 +42,7 @@ export const ExpensePageComponent = () => {
       return (
         <div>
           <ExpenseForm onExpenseSave={onExpenseSave}/>
-          <Test config={chartDataPoints}/>
+          <Test config={chartDataPoints[selectedYear]} maxAmount={maxAmount}/>
           <Expenses expenses={expenses} defaultYear={selectedYear} onYearChange={onYearChange}/>
         </div>
       );
