@@ -14,7 +14,7 @@ export const ExpenseDateFilter = (props) => {
             </label>
             <select className="expense_date_picker" value={props.date} onChange={onDateChange} id="year_picker">
                 {defaultYears.map((date) => 
-                    (<option value={date}>{date}</option>)
+                    (<option value={date} key={date}>{date}</option>)
                 )}
             </select>
         </div>

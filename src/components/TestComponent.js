@@ -7,7 +7,7 @@ export const Test = (props) => {
         
         const percentageToShow = String(config.value) + "%";
         return (
-            <div className='chart-container'>
+            <div className='chart-container' key={config.label}>
                 <span className='chart-label'>{config.label}</span>
                 <div className='data-container'>
                     <span className='data-filler' style={{height:percentageToShow}} />

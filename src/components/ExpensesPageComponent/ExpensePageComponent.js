@@ -30,8 +30,6 @@ export const ExpensePageComponent = () => {
 
   const [selectedYear,setYear] = useState('2022');
 
-  setDefaultChartDataPoints();
-
     const onYearChange = (year) => {
         setYear(year);
     };
