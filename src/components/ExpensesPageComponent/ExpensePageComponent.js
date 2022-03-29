@@ -3,27 +3,34 @@ import { Expenses } from "../Expenses/Expenses";
 import { useState } from "react";
 import { Test } from "../TestComponent";
 import { dataMonthConfig } from '../../CommonConfig';
+import { defaultYears } from "../../CommonConfig";
 
 
 export const ExpensePageComponent = () => {
 
+  const setDefaultChartDataPoints = () => {
+
+    const prevState={};
+    for(let year of defaultYears){
+      prevState[year] = [];
+
+      for(let config of dataMonthConfig){
+        prevState[year].push({...config,value:"0"})
+      }
+    }
+
+    return prevState;
+  };
+
   const [expenses,setExpenses] = useState([]);
 
-  const [chartDataPoints,setChartDataPoints]= useState({});
+  const [chartDataPoints,setChartDataPoints]= useState(setDefaultChartDataPoints());
 
   const maxAmount = 50;
 
   const [selectedYear,setYear] = useState('2022');
 
-  if(chartDataPoints[selectedYear] === undefined){
-    chartDataPoints[selectedYear] = [];
-
-    for(let config of dataMonthConfig){
-      chartDataPoints[selectedYear].push({...config,value:0})
-    }
-  }
-
-  
+  setDefaultChartDataPoints();
 
     const onYearChange = (year) => {
         setYear(year);

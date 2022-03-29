@@ -1,4 +1,5 @@
 import './ExpenseDateFilter.css';
+import { defaultYears } from '../../CommonConfig';
 
 export const ExpenseDateFilter = (props) => {
 
@@ -12,10 +13,9 @@ export const ExpenseDateFilter = (props) => {
                 Filter By Year
             </label>
             <select className="expense_date_picker" value={props.date} onChange={onDateChange} id="year_picker">
-                <option value="2022">2022</option>
-                <option value="2021">2021</option>
-                <option value="2020">2020</option>
-                <option value="2019">2019</option>
+                {defaultYears.map((date) => 
+                    (<option value={date}>{date}</option>)
+                )}
             </select>
         </div>
     )
