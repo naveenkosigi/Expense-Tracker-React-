@@ -63,7 +63,7 @@ export const ExpensePageComponent = () => {
       return (
         <div>
           <ExpenseForm onExpenseSave={onExpenseSave}/>
-          <Test config={chartDataPoints[selectedYear]} maxAmount={maxAmount}/>
+          <Test config={chartDataPoints[selectedYear]} maxValue={maxAmount}/>
           <Expenses expenses={expenses} defaultYear={selectedYear} onYearChange={onYearChange}/>
         </div>
       );

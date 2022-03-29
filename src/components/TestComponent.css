@@ -25,4 +25,5 @@
 .data-filler{
     background-color: #84DCCF;
     height: 82%;
+    transition: height 2s;
 }

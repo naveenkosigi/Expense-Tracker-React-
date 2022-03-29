@@ -5,7 +5,10 @@ export const Test = (props) => {
     const chartCount=props.config.length;
     const chartContent = props.config.map((config) => {
         
-        const percentageToShow = String(config.value) + "%";
+        const maxValue = +props.maxValue;
+        const currentValue = +config.value;
+        const percentageToShow = String((currentValue/maxValue) * 100) + "%";
+
         return (
             <div className='chart-container' key={config.label}>
                 <span className='chart-label'>{config.label}</span>
